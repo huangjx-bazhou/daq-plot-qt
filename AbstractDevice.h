@@ -11,6 +11,8 @@
 
 #include <QObject>
 
+QT_USE_NAMESPACE
+
 class AbstractDevicePrivate;
 
 /**

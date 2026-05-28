@@ -15,10 +15,6 @@
         "CMAKE_INSTALL_PREFIX": {
           "type": "PATH",
           "value": "${sourceDir}/out/install/${presetName}"
-        },
-        "Qt6_DIR": {
-          "type": "PATH",
-          "value": "C:/Users/Administrator/Documents/Qt/6.11.1/msvc2022_64/lib/cmake/Qt6"
         }
       }
     },
