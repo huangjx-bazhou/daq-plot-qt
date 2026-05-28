@@ -2,17 +2,13 @@
 
 project(DAQPlot VERSION 1.0.0 LANGUAGES CXX)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
-find_package(QtZeroConf CONFIG REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
+find_package(QtZeroConf REQUIRED)
 
 qt_standard_project_setup()
 
 qt_add_executable(DAQPlot
     WIN32 MANUAL_FINALIZATION
-    main.cpp
-    MainWindow.cpp
-    MainWindow.h
-    MainWindow.ui
     AbstractDevice.h
     AbstractDevice.cpp
     AbstractDeviceMonitor.cpp
@@ -20,13 +16,17 @@ qt_add_executable(DAQPlot
     DeviceEnums.h
     DeviceMonitorFactory.cpp
     DeviceMonitorFactory.h
+    main.cpp
+    MainWindow.cpp
+    MainWindow.h
+    MainWindow.ui
     NetworkDeviceMonitor.cpp
     NetworkDeviceMonitor.h
     SerialPortDeviceMonitor.cpp
     SerialPortDeviceMonitor.h
 )
 
-target_link_libraries(DAQPlot PRIVATE Qt::Core Qt::Widgets)
+target_link_libraries(DAQPlot PRIVATE Qt::Core Qt::Widgets QtZeroConf)
 
 install(TARGETS DAQPlot
     BUNDLE DESTINATION .
