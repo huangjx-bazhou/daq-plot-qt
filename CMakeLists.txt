@@ -17,6 +17,9 @@ qt_add_executable(DAQPlot
     AbstractDevice.cpp
     AbstractDeviceMonitor.cpp
     AbstractDeviceMonitor.h
+    DeviceEnums.h
+    DeviceMonitorFactory.cpp
+    DeviceMonitorFactory.h
     NetworkDeviceMonitor.cpp
     NetworkDeviceMonitor.h
     SerialPortDeviceMonitor.cpp

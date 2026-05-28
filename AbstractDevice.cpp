@@ -1,4 +1,5 @@
 ﻿#include "AbstractDevice.h"
+#include "DeviceEnums.h"
 
 class AbstractDevicePrivate
 {
@@ -6,9 +7,9 @@ public:
     AbstractDevicePrivate() :
         id(),
         name(),
-        type(AbstractDevice::UNKNOWN_TYPE),
-        communication(AbstractDevice::UNKNOWN_COMMUNICATION),
-        protocol(AbstractDevice::UNKNOWN_PROTOCOL)
+        type(DeviceType::UNKNOWN_TYPE),
+        communication(DeviceCommunication::UNKNOWN_COMMUNICATION),
+        protocol(DeviceProtocol::UNKNOWN_PROTOCOL)
     {
     }
 
