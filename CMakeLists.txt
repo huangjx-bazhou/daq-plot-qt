@@ -19,6 +19,8 @@ qt_add_executable(DAQPlot
     AbstractDeviceMonitor.h
     NetworkDeviceMonitor.cpp
     NetworkDeviceMonitor.h
+    SerialPortDeviceMonitor.cpp
+    SerialPortDeviceMonitor.h
 )
 
 target_link_libraries(DAQPlot PRIVATE Qt::Core Qt::Widgets)
