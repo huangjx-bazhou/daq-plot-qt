@@ -1,0 +1,428 @@
+﻿{
+  "version": 9,
+  "cmakeMinimumRequired": {
+    "major": 4,
+    "minor": 2,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "common",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "displayName": "${presetName}",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": {
+          "type": "PATH",
+          "value": "${sourceDir}/out/install/${presetName}"
+        },
+        "Qt6_DIR": {
+          "type": "PATH",
+          "value": "C:/Users/Administrator/Documents/Qt/6.11.1/msvc2022_64/lib/cmake/Qt6"
+        }
+      }
+    },
+    {
+      "name": "c++",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_CXX_EXTENSIONS": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "CMAKE_CXX_STANDARD_REQUIRED": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    },
+    {
+      "name": "c++11",
+      "hidden": true,
+      "inherits": [
+        "c++"
+      ],
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD": {
+          "type": "STRING",
+          "value": "11"
+        }
+      }
+    },
+    {
+      "name": "c++14",
+      "hidden": true,
+      "inherits": [
+        "c++"
+      ],
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD": {
+          "type": "STRING",
+          "value": "14"
+        }
+      }
+    },
+    {
+      "name": "c++17",
+      "hidden": true,
+      "inherits": [
+        "c++"
+      ],
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD": {
+          "type": "STRING",
+          "value": "17"
+        }
+      }
+    },
+    {
+      "name": "c++20",
+      "hidden": true,
+      "inherits": [
+        "c++"
+      ],
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD": {
+          "type": "STRING",
+          "value": "20"
+        }
+      }
+    },
+    {
+      "name": "v143",
+      "hidden": true,
+      "inherits": [
+        "c++20"
+      ],
+      "generator": "Visual Studio 17 2022",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "v145",
+      "hidden": true,
+      "inherits": [
+        "c++20"
+      ],
+      "generator": "Visual Studio 18 2026",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "x86",
+      "hidden": true,
+      "toolset": "host=x86",
+      "architecture": "Win32"
+    },
+    {
+      "name": "x64",
+      "hidden": true,
+      "toolset": "host=x64",
+      "architecture": "x64"
+    },
+    {
+      "name": "static",
+      "hidden": true,
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": {
+          "type": "BOOL",
+          "value": "OFF"
+        }
+      }
+    },
+    {
+      "name": "msvc-static",
+      "hidden": true,
+      "inherits": [
+        "static"
+      ],
+      "cacheVariables": {
+        "CMAKE_MSVC_RUNTIME_LIBRARY": {
+          "type": "STRING",
+          "value": "MultiThreaded$<$<CONFIG:Debug>:Debug>"
+        }
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "shared",
+      "hidden": true,
+      "cacheVariables": {
+        "BUILD_SHARED_LIBS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    },
+    {
+      "name": "msvc-shared",
+      "hidden": true,
+      "inherits": [
+        "shared"
+      ],
+      "cacheVariables": {
+        "CMAKE_MSVC_RUNTIME_LIBRARY": {
+          "type": "STRING",
+          "value": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
+        }
+      },
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "v143-x86-debug",
+      "inherits": [
+        "common",
+        "v143",
+        "x86",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v143-x86-release",
+      "inherits": [
+        "common",
+        "v143",
+        "x86",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v143-x64-debug",
+      "inherits": [
+        "common",
+        "v143",
+        "x64",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v143-x64-release",
+      "inherits": [
+        "common",
+        "v143",
+        "x64",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v143-x86-debug-static",
+      "inherits": [
+        "common",
+        "v143",
+        "x86",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v143-x86-release-static",
+      "inherits": [
+        "common",
+        "v143",
+        "x86",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v143-x64-debug-static",
+      "inherits": [
+        "common",
+        "v143",
+        "x64",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v143-x64-release-static",
+      "inherits": [
+        "common",
+        "v143",
+        "x64",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v145-x86-debug",
+      "inherits": [
+        "common",
+        "v145",
+        "x86",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v145-x86-release",
+      "inherits": [
+        "common",
+        "v145",
+        "x86",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v145-x64-debug",
+      "inherits": [
+        "common",
+        "v145",
+        "x64",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v145-x64-release",
+      "inherits": [
+        "common",
+        "v145",
+        "x64",
+        "msvc-shared"
+      ]
+    },
+    {
+      "name": "v145-x86-debug-static",
+      "inherits": [
+        "common",
+        "v145",
+        "x86",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v145-x86-release-static",
+      "inherits": [
+        "common",
+        "v145",
+        "x86",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v145-x64-debug-static",
+      "inherits": [
+        "common",
+        "v145",
+        "x64",
+        "msvc-static"
+      ]
+    },
+    {
+      "name": "v145-x64-release-static",
+      "inherits": [
+        "common",
+        "v145",
+        "x64",
+        "msvc-static"
+      ]
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "v143-x86-debug",
+      "displayName": "v143-x86-debug",
+      "configurePreset": "v143-x86-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v143-x86-release",
+      "displayName": "v143-x86-release",
+      "configurePreset": "v143-x86-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "v143-x64-debug",
+      "displayName": "v143-x64-debug",
+      "configurePreset": "v143-x64-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v143-x64-release",
+      "displayName": "v143-x64-release",
+      "configurePreset": "v143-x64-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "v143-x86-debug-static",
+      "displayName": "v143-x86-debug-static",
+      "configurePreset": "v143-x86-debug-static",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v143-x86-release-static",
+      "displayName": "v143-x86-release-static",
+      "configurePreset": "v143-x86-release-static",
+      "configuration": "Release"
+    },
+    {
+      "name": "v143-x64-debug-static",
+      "displayName": "v143-x64-debug-static",
+      "configurePreset": "v143-x64-debug-static",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v143-x64-release-static",
+      "displayName": "v143-x64-release-static",
+      "configurePreset": "v143-x64-release-static",
+      "configuration": "Release"
+    },
+    {
+      "name": "v145-x86-debug",
+      "displayName": "v145-x86-debug",
+      "configurePreset": "v145-x86-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v145-x86-release",
+      "displayName": "v145-x86-release",
+      "configurePreset": "v145-x86-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "v145-x64-debug",
+      "displayName": "v145-x64-debug",
+      "configurePreset": "v145-x64-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v145-x64-release",
+      "displayName": "v145-x64-release",
+      "configurePreset": "v145-x64-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "v145-x86-debug-static",
+      "displayName": "v145-x86-debug-static",
+      "configurePreset": "v145-x86-debug-static",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v145-x86-release-static",
+      "displayName": "v145-x86-release-static",
+      "configurePreset": "v145-x86-release-static",
+      "configuration": "Release"
+    },
+    {
+      "name": "v145-x64-debug-static",
+      "displayName": "v145-x64-debug-static",
+      "configurePreset": "v145-x64-debug-static",
+      "configuration": "Debug"
+    },
+    {
+      "name": "v145-x64-release-static",
+      "displayName": "v145-x64-release-static",
+      "configurePreset": "v145-x64-release-static",
+      "configuration": "Release"
+    }
+  ]
+}
