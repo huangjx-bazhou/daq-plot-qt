@@ -18,3 +18,23 @@ void SerialPortDeviceMonitor::stop()
 {
 
 }
+
+void SerialPortDeviceMonitor::setServices(const QStringList &services)
+{
+    
+}
+
+void SerialPortDeviceMonitor::addServices(const QStringList &services)
+{
+    
+}
+
+void SerialPortDeviceMonitor::removeServices(const QStringList &services)
+{
+    
+}
+
+QStringList SerialPortDeviceMonitor::services() const
+{
+    return QStringList();
+}

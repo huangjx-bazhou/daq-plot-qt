@@ -10,6 +10,7 @@
 #define ABSTRACTDEVICE_H
 
 #include <QObject>
+#include <QSharedPointer>
 
 QT_USE_NAMESPACE
 
@@ -44,5 +45,7 @@ private:
     Q_DISABLE_COPY(AbstractDevice)
     QScopedPointer<AbstractDevicePrivate> d;
 };
+
+using DeviceSharedPointer = QSharedPointer<AbstractDevice>;
 
 #endif // ABSTRACTDEVICE_H
