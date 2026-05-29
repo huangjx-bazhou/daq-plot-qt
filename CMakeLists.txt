@@ -16,6 +16,8 @@ qt_add_executable(DAQPlot
     DeviceEnums.h
     DeviceMonitorFactory.cpp
     DeviceMonitorFactory.h
+    Experiment.cpp
+    Experiment.h
     main.cpp
     MainWindow.cpp
     MainWindow.h
