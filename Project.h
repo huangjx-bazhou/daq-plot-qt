@@ -10,6 +10,8 @@
 #define PROJECT_H
 
 #include <QObject>
+#include <QJsonObject>
+#include "Experiment.h"
 
 QT_USE_NAMESPACE
 
@@ -21,19 +23,12 @@ class ProjectPrivate;
 class Project : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(bool modified READ isModified WRITE setModified NOTIFY modifiedChanged)
 
 public:
     explicit Project(QObject *parent = Q_NULLPTR);
     virtual ~Project();
-
-    /** 项目文件路径 */
-    QString filePath() const;
-
-    /** 设置项目文件路径 */
-    void setFilePath(const QString &filePath);
 
     /** 项目名称 */
     QString name() const;
@@ -47,10 +42,39 @@ public:
     /** 设置项目是否被修改 */
     void setModified(bool modified);
 
+    /** 项目中的实验数量 */
+    int experimentCount() const;
+
+    /** 项目中的实验列表 */
+    QList<ExperimentSharedPointer> experiments() const;
+
+    /** 添加一个实验 */
+    void addExperiment(const ExperimentSharedPointer &experiment);
+
+    /** 移除一个实验 */
+    bool removeExperiment(const ExperimentSharedPointer &experiment);
+
+    /** 清空实验 */
+    void clearExperiments();
+
+    /** 转换为Json对象 */
+    QJsonObject toJson() const;
+
+    /** 从Json对象加载 */
+    bool fromJson(const QJsonObject &json);
+
+    /** 保存项目文件，filePath为空时使用当前项目路径 */
+    bool save(const QString &filePath = QString());
+
+    /** 加载项目文件 */
+    bool load(const QString &filePath);
+
 Q_SIGNALS:
     void filePathChanged(const QString &filePath);
     void nameChanged(const QString &name);
     void modifiedChanged(bool modified);
+    void experimentAdded(const ExperimentSharedPointer &experiment);
+    void experimentRemoved(const ExperimentSharedPointer &experiment);
 
 private:
     Q_DISABLE_COPY(Project)
