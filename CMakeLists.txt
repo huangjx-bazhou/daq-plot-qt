@@ -22,6 +22,8 @@ qt_add_executable(DAQPlot
     MainWindow.ui
     NetworkDeviceMonitor.cpp
     NetworkDeviceMonitor.h
+    Project.cpp
+    Project.h
     SerialPortDeviceMonitor.cpp
     SerialPortDeviceMonitor.h
 )
